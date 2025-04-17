@@ -36,4 +36,4 @@ Este repositorio reúne los trabajos y proyectos desarrollados a lo largo del tr
 ## ✨ Autor
 
 **Daniela Serra**  
-📫 [GitHub](https://github.com/danielasserra)
+🌐 [Portfolio](https://linktr.ee/daniserra)
