@@ -60,6 +60,3 @@ print(f"El total bruto es {subtotal}\n"
       f"El subtotal con recargos y bonificaciones es de {total}\n"
       f"El iva es de {total_iva}\n"
       f"El total final a pagar es de {total_final}")
-
-
-
