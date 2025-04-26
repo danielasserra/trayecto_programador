@@ -153,17 +153,17 @@
 
 # FUNCIONA MEJOR
 
-contador = 0
-suma = 0
-eleccion = "si"
+# contador = 0
+# suma = 0
+# eleccion = "si"
 
-while eleccion == "si":
-    numero = int(input("ingrese numero: "))
-    suma += numero
-    contador += 1
-    eleccion = input("quiere seguir?")
+# while eleccion == "si":
+#     numero = int(input("ingrese numero: "))
+#     suma += numero
+#     contador += 1
+#     eleccion = input("quiere seguir?")
 
-promedio = suma / contador
-print(f"La suma de los numeros ingresados es: {suma} y su promedio es {promedio}")
+# promedio = suma / contador
+# print(f"La suma de los numeros ingresados es: {suma} y su promedio es {promedio}")
 
 # Tarea: ejercicios del 1 al 7
