@@ -7,6 +7,8 @@
 # Clase 07
 # REPETITIVAS WHILE
 
+# Daniela Serra
+# While
 # # Ejercicio 01
 # # Mostrar 10 repeticiones de números ascendentes desde el 1 al 10.
 
@@ -20,13 +22,15 @@
 # print("FIN")
 
 #--------------------------------------------
+# Daniela Serra
+# While
 # Ejercicio 02
 # Mostrar 10 repeticiones de números descendentes desde el 10 al 1.
 
 # contador = 0
 # numero = 10
 
-# Opcion 1
+# # Opcion 1
 
 # while contador < 10:
 #     print(numero)
@@ -35,7 +39,7 @@
 
 # print("FIN")
 
-# Opcion 2
+# # Opcion 2
 
 # contador = 10
 # while contador > 0:
@@ -44,7 +48,24 @@
 # print("FIN")
 
 #--------------------------------------------
+# # Daniela Serra
+# # While
+# # Ejercicio 03
+# # Mostrar la suma de los números desde el 1 hasta el 10.
 
+# contador = 0
+# suma = 0
+
+# while contador <= 10:
+#      suma += contador
+#      contador += 1
+# print(f"{suma}")
+
+
+#--------------------------------------------
+
+# Daniela Serra
+# While
 # # Ejercicio 04
 # # Mostrar la suma de los números pares desde el 1 hasta el 10.
 
@@ -74,13 +95,15 @@
 
 #--------------------------------------------
 
-# Ejercicio 05
-# Solicitar el ingreso de 5 números, calcular la suma de los números ingresados 
-# y el promedio. Mostrar la suma y el promedio por pantalla.
+# Daniela Serra
+# # While
+# # Ejercicio 05
+# # Solicitar el ingreso de 5 números, calcular la suma de los números ingresados 
+# # y el promedio. Mostrar la suma y el promedio por pantalla.
 
-# ENTRADA: pedir un numero (se repite)
-# PROCESO: acumular (se repite)
-# SALIDA: mostrar la suma (no se repite)
+# # ENTRADA: pedir un numero (se repite)
+# # PROCESO: acumular (se repite)
+# # SALIDA: mostrar la suma (no se repite)
 
 # contador = 0
 # acumulador = 0
@@ -96,6 +119,8 @@
 
 #--------------------------------------------
 
+# Daniela Serra
+# While
 # Ejercicio 06
 # Solicitar al usuario que ingrese números (hasta que no quiera ingresar más).
 # Calcular la suma de los números ingresados y el promedio de los mismos.
@@ -165,5 +190,29 @@
 
 # promedio = suma / contador
 # print(f"La suma de los numeros ingresados es: {suma} y su promedio es {promedio}")
+
+#--------------------------------------------
+
+# Daniela Serra
+# While
+# Ejercicio 06
+# Solicitar al usuario que ingrese números (hasta que no quiera ingresar más).
+# Calcular la suma de los números ingresados y el promedio de los mismos.
+
+condicion = "si"
+suma = 0
+i = 0
+
+while condicion == "si":
+    numero = int(input("Ingrese un numero: "))
+    suma += numero
+    condicion = input("¿Desea continuar? (si/no): ")
+    i += 1
+
+promedio = suma / i
+
+print(f"La suma de los numeros ingresados es {suma}")
+print(f"El promedio de los numeros ingresados es {promedio}")
+
 
 # Tarea: ejercicios del 1 al 7
