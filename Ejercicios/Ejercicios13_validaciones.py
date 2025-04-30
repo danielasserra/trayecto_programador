@@ -49,15 +49,32 @@
 # # Repetitivas While - Validaciones
 # # Ejercicio 15
 
-# Pedir al usuario el ingreso de una nota. 
-# La misma debe estar comprendida entre 1 y 10 inclusive.
+# # Pedir al usuario el ingreso de una nota. 
+# # La misma debe estar comprendida entre 1 y 10 inclusive.
 
-nota = input("Ingrese la nota: ")
-nota = int(nota)
+# nota = input("Ingrese la nota: ")
+# nota = int(nota)
 
-while nota < 1 or nota > 10:
-    print("Nota incorrecta. Inténtelo nuevamente")
-    nota = input("Ingrese la nota: ")
-    nota = int(nota)
+# while nota < 1 or nota > 10:
+#     print("Nota incorrecta. Inténtelo nuevamente")
+#     nota = input("Ingrese la nota: ")
+#     nota = int(nota)
 
-print("Nota ingresada")
+# print("Nota ingresada")
+
+#--------------------------------------------------
+
+# # Daniela Serra
+# # Repetitivas While - Validaciones
+# # Ejercicio 16
+
+# Solicitarle al usuario el ingreso de un color. 
+# Validar que el mismo sea Rojo, Verde o Azul.
+
+color = input("Ingrese un color (rojo, verde, azul): ").lower()
+
+while color != "rojo" and color != "verde" and color != "azul":
+    print("Respuesta inválida. El color debe ser 'rojo', 'verde' o 'azul'. Inténtelo nuevamente")
+    color = input("Ingrese un color (rojo, verde, azul): ").lower()
+
+print(f"El color ingresado es {color}")
