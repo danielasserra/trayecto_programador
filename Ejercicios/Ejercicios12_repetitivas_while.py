@@ -28,24 +28,24 @@
 
 #--------------------------------------------
 
-# # Daniela Serra
-# # Repetitivas While
-# # Ejercicio 08
+# Daniela Serra
+# Repetitivas While
+# Ejercicio 08
 
-# # Ingresar valores de compras hasta que el usuario lo decida. 
-# # Determinar el 10% del total.
+# Ingresar valores de compras hasta que el usuario lo decida. 
+# Determinar el 10% del total.
 
-# subtotal = 0
-# eleccion = "si"
+subtotal = 0
+eleccion = "si"
 
-# while eleccion == "si":
-#     precio = float(input("Ingrese el precio del producto: $"))
-#     subtotal += precio
-#     eleccion = input("¿Desea ingresar otro producto? (si/no) ")
+while eleccion == "si":
+    precio = float(input("Ingrese el precio del producto: $"))
+    subtotal += precio
+    eleccion = input("¿Desea ingresar otro producto? (si/no) ")
 
-# porcentaje = subtotal * 0.1
+porcentaje = subtotal * 0.1
 
-# print(f"El 10% del total es ${porcentaje:.2f}")
+print(f"El 10% del total es ${porcentaje:.2f}")
 
 #--------------------------------------------
 
@@ -108,9 +108,9 @@
 
 #--------------------------------------------
 
-# Daniela Serra
-# Repetitivas While
-# Ejercicio 11
+# # Daniela Serra
+# # Repetitivas While
+# # Ejercicio 11
 
 # # Se ingresa la edad y el género (Femenino - Masculino - Otro) de 10 personas. 
 # # Determinar:
@@ -150,33 +150,33 @@
 
 #--------------------------------------------
 
-# # Daniela Serra
-# # Repetitivas While
-# # Ejercicio 12
+# Daniela Serra
+# Repetitivas While
+# Ejercicio 12
 
-# # Ingresar 10 números enteros. Determinar el máximo y el mínimo.
+# Ingresar 10 números enteros. Determinar el máximo y el mínimo.
 
-# # ----------  OPCION 1  -------------
+# ----------  OPCION 1  -------------
 
-# i = 0
-# bandera_primera_vez = True
+i = 0
+bandera_primera_vez = True
 
-# while i < 10:
-#     numero = int(input("Ingrese un numero: "))
-#     if bandera_primera_vez == True:
-#         maximo = numero
-#         minimo = numero
-#         bandera_primera_vez = False
+while i < 10:
+    numero = int(input("Ingrese un numero: "))
+    if bandera_primera_vez == True:
+        maximo = numero
+        minimo = numero
+        bandera_primera_vez = False
 
-#     if maximo < numero:
-#         maximo = numero
+    if maximo < numero:
+        maximo = numero
     
-#     if minimo > numero:
-#         minimo = numero
+    if minimo > numero:
+        minimo = numero
 
-#     i += 1
+    i += 1
 
-# print(f"El número máximo es {maximo} y el mínimo es {minimo}")
+print(f"El número máximo es {maximo} y el mínimo es {minimo}")
 
 # ----------  OPCION 2  -------------
 
