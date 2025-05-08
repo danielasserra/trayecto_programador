@@ -32,7 +32,8 @@
 # ✔️ Los datos deben solicitarse y validarse correctamente.
 # ✔️ Presentar los resultados de manera clara y organizada en pantalla.
 
-condicion = input("Desea contestar la encuesta (si/no): ")
+condicion = input("Desea contestar la encuesta (si/no): ").lower()
+
 i_america_preferencia = 0
 i_america = 0
 i_europa = 0
@@ -50,24 +51,36 @@ while condicion == "si":
     # 🔹 Recolección de Datos
 
     nombre = input("Ingrese su nombre: ")
+
     edad = int(input("Ingrese su edad: "))
-    region = input("Ingrese su region de procedencia(America,Europa,Asia): ")
-    area_de_preferencia = input("Ingrese su area (Mus, Lit, Art): ")
+    while edad < 16:
+        print("No puede realizar la encuesta siendo menor de 16")
+        edad = int(input("Ingrese su edad: "))        
+
+    region = input("Ingrese su region de procedencia(America,Europa,Asia): ").upper()
+    while region != "AMERICA" and region != "EUROPA" and region != "ASIA":
+        print("Region inválida. Inténtelo nuevamente")
+        region = input("Ingrese su region de procedencia(America,Europa,Asia): ").upper()
+
+    area_de_preferencia = input("Ingrese su area (Mus, Lit, Art): ").upper()
+    while area_de_preferencia != "MUS" and area_de_preferencia != "LIT" and area_de_preferencia != "ART":
+        print("Area inválida. Inténtelo nuevamente")
+        area_de_preferencia = input("Ingrese su area (Mus, Lit, Art): ").upper()
 
         #total de participantes
     i +=1
 
     
-    if region == "America":
+    if region == "AMERICA":
         # 4️⃣ Porcentajes totales según área de pertenencia.
         i_america += 1
 
         # 1️⃣ Cantidad de participantes provenientes de América que votaron por "Música (MUS)" 
         # y cuya edad esté entre 18 y 30 años (inclusive).
-        if area_de_preferencia == "Mus" and edad >= 18 and edad <= 30:
+        if area_de_preferencia == "MUS" and edad >= 18 and edad <= 30:
             i_america_preferencia += 1
 
-    if region == "Europa":
+    if region == "EUROPA":
         # 4️⃣ Porcentajes totales según área de pertenencia.
         i_europa += 1
 
@@ -75,7 +88,7 @@ while condicion == "si":
             # siempre y cuando: 
             #   Provengan de Europa.
             #   Su edad esté entre 25 y 40 años.
-        if area_de_preferencia != "Lit" and edad >= 25 and edad <= 40:
+        if area_de_preferencia != "LIT" and edad >= 25 and edad <= 40:
             i_lit += 1
             porcentaje_lit = i_lit / i * 100
         
@@ -83,7 +96,7 @@ while condicion == "si":
         suma_edad += edad
 
 
-    if region == "Asia":
+    if region == "ASIA":
         # 4️⃣ Porcentajes totales según área de pertenencia.
         i_asia += 1
 
@@ -101,7 +114,7 @@ while condicion == "si":
             asia_nombre = nombre
             asia_preferencia = area_de_preferencia
     
-    condicion = input("¿Desea ingresar otra respuesta? (si/no)")
+    condicion = input("¿Desea ingresar otra respuesta? (si/no)").lower()
 
     ############# FUERA DEL WHILE
 
