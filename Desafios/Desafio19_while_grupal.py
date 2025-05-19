@@ -80,7 +80,7 @@ while condicion == "si":
         if area_de_preferencia == "MUS" and edad >= 18 and edad <= 30:
             i_america_preferencia += 1
 
-    if region == "EUROPA":
+    elif region == "EUROPA":
         # 4️⃣ Porcentajes totales según área de pertenencia.
         i_europa += 1
 
@@ -90,7 +90,7 @@ while condicion == "si":
             #   Su edad esté entre 25 y 40 años.
         if area_de_preferencia != "LIT" and edad >= 25 and edad <= 40:
             i_lit += 1
-            porcentaje_lit = i_lit / i * 100
+            
         
         # 5️⃣ Edad promedio de los europeos
         suma_edad += edad
@@ -107,16 +107,15 @@ while condicion == "si":
              asia_nombre = nombre
              asia_preferencia = area_de_preferencia
 
-             bandera_primera == True
-        
-        if asia_mayor_edad < edad:
-            asia_mayor_edad = edad
-            asia_nombre = nombre
-            asia_preferencia = area_de_preferencia
+             bandera_primera = True
+
     
     condicion = input("¿Desea ingresar otra respuesta? (si/no)").lower()
 
     ############# FUERA DEL WHILE
+
+# Porcentaje de participantes que NO votaron por Literatura (LIT), 
+porcentaje_lit = i_lit / i * 100
 
 # 4️⃣ Porcentajes totales según área de pertenencia.
 porcentaje_america = i_america / i * 100
