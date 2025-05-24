@@ -167,7 +167,8 @@
 
 ####--------------------------------------------------
 
-# Ejercicio: Crear una funcion para que al ingresar un numero, nos diga si es par
+# Ejercicio: Crear una funcion para que al ingresar un numero, 
+# nos diga si es par
 
 def es_par(numero):
     if numero % 2 == 0:

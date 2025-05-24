@@ -4,7 +4,7 @@
 # Ingresar un número. Determinar si el número es primo o no.
 #  solo es divisible por 1 y por sí mismo
 
-# # Opcion 1 (no funciona bien)
+# # Opcion 1 
 # numero = int(input("Ingrese un número: "))
 # suma_resto_cero = 0
 
