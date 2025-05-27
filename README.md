@@ -1,4 +1,4 @@
-# 👩‍💻 Trayecto Programador – 2025
+# 👩‍💻 Trayecto Programador (Python, C#, MySQL) – 2025
 
 Este repositorio reúne los trabajos y proyectos desarrollados a lo largo del trayecto formativo, donde aplico los conocimientos adquiridos en programación y desarrollo de software.
 
