@@ -1,0 +1,18 @@
+# Archivos temporales de Visual Studio
+.vs/
+*.vsidx
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de sistema
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales de Python
+venv/
+__pycache__/
+*.pyc
