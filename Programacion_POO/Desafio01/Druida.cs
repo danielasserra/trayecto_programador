@@ -8,6 +8,7 @@ namespace Desafio01
 {
     public class Druida
     {
+        #region Atributos
         // ATRIBUTOS BASICOS
         private string nombre;
         private int edad;
@@ -28,6 +29,11 @@ namespace Desafio01
         private int sabiduria;
         private int carisma;
 
+        #endregion
+
+        #region Propiedades
+
+        #endregion
 
 
         // CONSTRUCTOR
@@ -64,6 +70,7 @@ namespace Desafio01
 
         }
 
+        #region Metodos
         // METODOS
         public string MostrarDruida()
         {
@@ -199,3 +206,6 @@ public void Descansar()
 
 
 }
+
+#endregion
+
