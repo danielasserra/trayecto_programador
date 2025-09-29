@@ -73,7 +73,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio01", "Desafio01\Desa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio01_Dado", "Desafio01_Dado\Desafio01_Dado.csproj", "{1526FF63-3E37-4CC5-A8E5-35842BA5E403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clase08", "clase08\clase08.csproj", "{B4B20B0C-EFE6-4AA3-A464-8F42EF455DB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clase08-09-10", "clase08\clase08-09-10.csproj", "{B4B20B0C-EFE6-4AA3-A464-8F42EF455DB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio01_Druida_Final", "Desafio01_Druida_Final\Desafio01_Druida_Final.csproj", "{029EB778-6951-4653-A4A6-CEF2B994B184}"
 EndProject

@@ -19,6 +19,8 @@ namespace Desafio01_Druida_Final
         private int manaActual;
         private bool consciente;
         private string formaSalvaje;
+        private int formaSalvajeMax;
+        private int formaSalvajeActual;
         // ataque?
 
 
@@ -53,34 +55,34 @@ namespace Desafio01_Druida_Final
                 {
                     this.nivel = 20;
                 }
+                this.nivel = value;
             }
         }
-        public int HpMax  // solo se puede ver porque se modifica mediante metodo
-        {
+        public int HpMax  // solo lectura porque se modifica mediante metodo
+        {                 // propiedad calculada, no va en constructor
             get
             {
-                return this.hpMax;
+                return this.Nivel * 10; // nivel x 10 = vida
             }
         }
-        public int HpActual  // solo se puede ver porque se modifica mediante metodo
+        public int HpActual  // solo lectura porque se modifica mediante metodo (curarse(), defenderse()...)
         {
             get
             {
                 return this.hpActual;
             }
+            private set
+            { 
+                this.hpActual = value; 
+            }
         }
 
 
         public int ManaMax  // solo se puede ver porque se modifica mediante metodo
-        {
+        {                   // propiedad calculada, no va en constructor
             get
             {
-                return this.manaMax;
-            }
-            private set
-            {
-                this.manaMax = this.nivel * 2;
-                this.ManaActual = manaMax;
+                return this.Nivel * 2; // Nivel x 2 = energia magica
             }
         }
 
@@ -92,17 +94,30 @@ namespace Desafio01_Druida_Final
             }
             private set
             {
-                this.ManaActual = value;
+                this.manaActual = value; // permite usar la propiedad como interfaz interna y 
+            }                            // mantener todo más encapsulado y uniforme
+        }
+
+        public int Constitucion
+        {
+            get
+            {
+                return (int)(this.HpMax * 0.25); // siempre 25% de la vida máxima actual
             }
         }
-        public bool Consciente  // solo se puede ver porque se modifica mediante metodo
+
+        public bool Consciente  // solo lectura porque se modifica mediante metodo
         {
             get
             {
                 return this.consciente;
             }
+            private set 
+            { 
+                this.consciente = value; 
+            }
         }
-        public string FormaSalvaje  // solo se puede ver porque se modifica mediante metodo
+        public string FormaSalvaje  // solo lectura porque se modifica mediante metodo
         {
             get
             {
@@ -110,11 +125,23 @@ namespace Desafio01_Druida_Final
             }
         }
 
-        public int Constitucion
+        public int FormaSalvajeMax
         {
             get
             {
-                return this.constitucion;
+                return this.Nivel;
+            }
+        }
+
+        public int FormaSalvajeActual
+        {
+            get 
+            { 
+                return this.formaSalvajeActual; 
+            }
+            private set 
+            { 
+                this.formaSalvajeActual = value; 
             }
         }
 
@@ -126,13 +153,11 @@ namespace Desafio01_Druida_Final
         {
             this.nombre = nombre;
             this.nivel = nivel;
-            this.hpMax = nivel * 10; // nivel x 10 = vida
             this.hpActual = this.hpMax; // inicia vida actual = vida maxima
-            this.constitucion = (int)(hpMax * 0.25); // defensa: 25% de la vida
-            this.manaMax = nivel * 2; // nivel x 2 = energia magica
             this.manaActual = this.manaMax; // inicia energia magica actual = energia magica maxima
             this.consciente = true;
             this.formaSalvaje = "Aun no se transformó";
+            this.formaSalvajeActual = this.FormaSalvajeMax;
         }
 
         #endregion
@@ -143,68 +168,93 @@ namespace Desafio01_Druida_Final
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("----------------- D&D ------------------");
+            sb.AppendLine("================= D&D =================");
             sb.AppendLine("------------- CLASE DRUIDA -------------");
 
-            sb.AppendLine("\nNombre: " + this.nombre);
-            sb.AppendLine("\nVida Maxima: " + this.hpMax);
-            sb.AppendLine("\nVida Actual: " + this.hpActual);
-            sb.AppendLine("\nCapacidad defensiva: " + this.constitucion);
-            sb.AppendLine("\nForma Salvaje: " + this.formaSalvaje);
-            sb.AppendLine("\nNivel: " + this.nivel);
-            sb.AppendLine("\nEnergía mágica Maxima: " + this.manaMax);
-            sb.AppendLine("\nEnergía mágica Actual: " + this.manaActual);
-            sb.AppendLine("\nEstá consciente: " + this.consciente);
+            sb.AppendLine($"\nNombre: {this.Nombre}");
+            sb.AppendLine($"\nNivel: {this.Nivel}");
+            sb.AppendLine($"\nVida: {this.HpActual} / {this.HpMax}");
+            sb.AppendLine($"\nCapacidad defensiva: " + this.Constitucion);
+            sb.AppendLine($"\nForma Salvaje: " + this.FormaSalvaje);
+            sb.AppendLine($"\nTransformaciones Disponibles: {this.FormaSalvajeActual} / {this.FormaSalvajeMax}");
+            sb.AppendLine($"\nEnergía mágica Disponible: {this.ManaActual} / {this.ManaMax}");
+            sb.AppendLine($"\nEstá consciente: " + this.Consciente);
             sb.AppendLine("\n----------------------------------------");
             return sb.ToString();
         }
 
-        public void Transformarse(string animal) 
-            // Faltan condiciones: cantidad de mana, si ya está transformado
+        public string Transformarse(string animal) 
         {
-            this.formaSalvaje = animal;
+            StringBuilder sb = new StringBuilder();
+
+            if (manaActual >= 1 && formaSalvajeActual >= 1)
+            {
+                this.formaSalvaje = animal;
+                this.manaActual -= 1;
+                this.formaSalvajeActual -= 1;
+                sb.AppendLine($"{nombre} convoca la fuerza de la naturaleza y se transforma en {animal}");
+                sb.AppendLine("El rugido del espíritu salvaje resuena en todo el bosque...");
+            }
+            else
+            {
+                sb.AppendLine($"{nombre} intenta transformarse en {animal}, pero la magia falla...");
+                sb.AppendLine($"Energía actual: {this.ManaActual}, Transformaciones restantes: {this.formaSalvajeActual}");
+                sb.AppendLine("El poder de la transformación ha sido insuficiente. ¡El bosque guarda silencio ante tu intento fallido!");
+            }
+            return sb.ToString();
         }
-
-        
-
 
 
         public void Descansar()
         {
-            this.hpActual = this.hpMax;
-            this.manaActual = this.manaMax;
-            this.consciente = true;
+            this.HpActual = this.HpMax;
+            this.ManaActual = this.ManaMax;
+            this.Consciente = true;
         }
 
-        public int Defenderse(int puntosDeDaño)
+        public void Defenderse(int puntosDeDaño)
         {
-            if (puntosDeDaño < this.constitucion)
+            if (puntosDeDaño < this.Constitucion)
             {
-                this.hpActual = this.hpActual;
+                return;
             }
-            else if ((this.hpActual - puntosDeDaño) < 0)
+            else if ((this.HpActual - puntosDeDaño) <= 0)
             {
-                this.hpActual = 0;
+                this.HpActual = 0;
+                this.Consciente = false;
             }
             else
             {
-                this.hpActual -= puntosDeDaño;
+                this.HpActual -= puntosDeDaño;
             }
-            return this.hpActual;
         }
 
-        public int Curarse(int puntosDeVida) // FALTA USAR MANA!!
+        public void Curarse(int puntosDeVida) 
         {
-            if ((this.hpActual + puntosDeVida) > this.hpMax)
+            if (this.ManaActual >= 1)
             {
-                this.hpActual = this.hpMax;
-            }
-            else
-            {
-                this.hpActual += puntosDeVida;
-            }
+                if ((this.hpActual + puntosDeVida) > this.hpMax)
+                {
+                    this.hpActual = this.hpMax;
+                }
+                else
+                {
+                    this.hpActual += puntosDeVida;
+                }
 
-            return this.hpActual;
+                this.ManaActual -= 1;
+            }
+        }
+
+        public void SubirNivel()
+        {
+            if (this.Nivel < 20)
+            {
+                this.Nivel++;
+                this.HpActual = this.HpMax;
+                this.ManaActual = this.ManaMax;
+                this.Consciente = true;
+            }
         }
 
         #endregion
@@ -214,7 +264,6 @@ namespace Desafio01_Druida_Final
 
 // FALTA!!!
 
-// SubirNivel() - aumenta nivel +1, hpMax (nivel x 10) y manaMax (nivel x2)
 // Atacar() - dañoAtaque - Mana
 // Ver metodos que falta completar
 // 
