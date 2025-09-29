@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="EnumTipo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="EnumTipo.cs" />
+  </ItemGroup>
+
 </Project>

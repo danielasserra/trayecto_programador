@@ -21,6 +21,8 @@ namespace clase08
         private int almacenamientoTotal;
 
         private const int minBat = 20;
+
+        private List<aplicacion> aplicaciones;
         #endregion
 
         #region Propiedades
@@ -124,7 +126,17 @@ namespace clase08
         #region Constructores
 
         // Constructor Parametrizado
-        public Celular(string modelo, string numero, int almacenamientoTotal = 128)
+        public Celular() //defecto
+        {
+            contador++; //cant d cel q se crean. Atributo de Clase.
+            aplicaciones = new List<aplicacion>(); // crea lista de aplicaciones
+        }
+
+        public Celular(string modelo, string numero, int almacenamientoTotal = 128) : this()
+
+        //Llamada explicita al constructor por defecto ":this()"
+        // ejecuta el constructor x defecto, crea la lista
+        // y despues se ejecuta el cosntructor parametrizado
         {
             this.modelo = modelo;
             this.numero = numero;
@@ -134,7 +146,7 @@ namespace clase08
             this.almacenamientoUsado = 0;
 
 
-            contador++;
+
         }
 
         // Constructor estático
@@ -158,9 +170,42 @@ namespace clase08
             sb.AppendLine($"Encendido: {this.Encendido}");
             sb.AppendLine($"Almacenamiento Total: {this.AlmacenamientoTotal}");
             sb.AppendLine($"Almacenamiento Usado: {this.AlmacenamientoUsado}");
+            sb.AppendLine(MostrarApps());
 
             return sb.ToString();
         }
+
+        private string MostrarApps()
+        {
+            // Crear un stringbuilder
+            // concatena las apps
+            // devuelve un sb
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Lista de apps instaladas:");
+            
+            // iteracion para mostrar las apps
+            for (int i = 0; i < this.aplicaciones.Count; i++)
+            {
+                sb.AppendLine(this.aplicaciones[i].MostrarApp());
+            }
+
+            /*
+            // FOR EACH
+            // Simplifica la variable de control (i), contar elementos, etc.
+            // Sirve para recorrer una coleccion
+
+            //por cada aplicacion que esta instalada en aplicaciones, mostrame esa app
+            foreach (Aplicacion app in this.aplicaciones)
+            {
+                sb.AppendLine(app.MostrarApp());
+            }
+            */
+            return sb.ToString();
+        }
+
+        
+
 
         public static bool CompararEstatico(Celular c1, Celular c2)
         {
@@ -206,6 +251,20 @@ namespace clase08
             {
                 resultado = true;
                 this.almacenamientoUsado += tamaño;
+            }
+
+            return resultado;
+        }
+
+        public bool InstalarApp(Aplicacion app)
+        {
+            bool resultado = false;
+
+            if (this.encendido && this.bateria > minBat && this.EspacioLibre >= app.Tamaño)
+            {
+                resultado = true;
+                this.almacenamientoUsado += app.Tamaño;
+                this.aplicaciones.Add(app);
             }
 
             return resultado;
