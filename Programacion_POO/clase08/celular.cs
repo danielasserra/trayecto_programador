@@ -22,7 +22,7 @@ namespace clase08
 
         private const int minBat = 20;
 
-        private List<aplicacion> aplicaciones;
+        private List<Aplicacion> aplicaciones;
         #endregion
 
         #region Propiedades
@@ -129,9 +129,14 @@ namespace clase08
         public Celular() //defecto
         {
             contador++; //cant d cel q se crean. Atributo de Clase.
-            aplicaciones = new List<aplicacion>(); // crea lista de aplicaciones
+            aplicaciones = new List<Aplicacion>(); // crea lista de aplicaciones
         }
 
+        public Celular (string modelo, string numero)
+        {
+            this.modelo = modelo;
+            this.numero = numero;
+        }
         public Celular(string modelo, string numero, int almacenamientoTotal = 128) : this()
 
         //Llamada explicita al constructor por defecto ":this()"
@@ -269,6 +274,20 @@ namespace clase08
 
             return resultado;
         }
+
+        public void InstalarApp(string nombre, int tamaño, EnumTipo tipo)
+        {
+            Aplicacion nueva = new Aplicacion(nombre, tamaño, tipo); //creo una clase dentro de otra "aplicacion" dentro de "celular
+            if (InstalarApp(nueva) == true)
+            {
+                Console.WriteLine("App instalada con exito");
+            }
+            else
+            {
+                Console.WriteLine("No hay espacio o bateria");
+            }
+
+
         #endregion
 
 
