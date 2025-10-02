@@ -8,6 +8,11 @@ namespace clase08
         {
             Celular c1 = new Celular("Iphtone", "444444");
 
+            c1.Encender();
+            c1.InstalarApp("Facebook", 10, EnumTipo.RedSocial);
+            
+            
+            /*
             //Crear app
 
             Aplicacion app1 = new Aplicacion("Facebook", 10, EnumTipo.RedSocial);
@@ -19,7 +24,7 @@ namespace clase08
             Console.WriteLine(c1.MostrarCelular());
             c1.InstalarApp(app1);
 
-
+            */
 
 
             /*

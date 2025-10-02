@@ -1,18 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace clase08-09-10
+﻿namespace Clase08_09_10
 {
-    class EnumTipo
+    public enum TipoAplicacion
     {
-    public EnumTipo()
-    {
-        this.nombre = nombre;
-        this.tamaño = tamaño;
-        this.tipo = tipo;
+        Juego,
+        RedSocial,
+        Herramienta,
+        Otro
     }
+
+    public class Aplicacion
+    {
+        // Atributos (campos privados)
+        private string nombre;
+        private int tamaño;
+        private TipoAplicacion tipo;
+
+        // Constructor
+        public Aplicacion(string nombre, int tamaño, TipoAplicacion tipo)
+        {
+            this.nombre = nombre;
+            this.tamaño = tamaño;
+            this.tipo = tipo;
+        }
+
+        // Propiedades
+        public string Nombre
+        {
+            get { return nombre; }
+        }
+
+        public int Tamaño
+        {
+            get { return tamaño; }
+        }
+
+        public TipoAplicacion Tipo
+        {
+            get { return tipo; }
+        }
+
+        // Método para mostrar info
+        public string Mostrar()
+        {
+            return $"Aplicación: {nombre}, Tamaño: {tamaño} MB, Tipo: {tipo}";
+        }
     }
 }
