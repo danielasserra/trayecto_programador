@@ -30,9 +30,9 @@ namespace Desafio01_Druida_Final
 
         public string Nombre
         {
-            get 
-            { 
-                return nombre; 
+            get
+            {
+                return nombre;
             }
         }
 
@@ -75,7 +75,7 @@ namespace Desafio01_Druida_Final
         #region Constructor
 
         // constructor genérico
-        public Hechizo (string nombre, TipoHechizo tipo, int nivel)
+        public Hechizo(string nombre, TipoHechizo tipo, int nivel)
         {
             this.nombre = nombre;
             this.tipo = tipo;
@@ -83,16 +83,16 @@ namespace Desafio01_Druida_Final
         }
 
         // constructor ataque
-        public Hechizo (string nombre, TipoHechizo tipo, int nivel, int daño)
-            :this(nombre, TipoHechizo.Ataque, nivel)
+        public Hechizo(string nombre, TipoHechizo tipo, int nivel, int daño)
+            : this(nombre, TipoHechizo.Ataque, nivel)
         {
             this.Daño = daño;
             this.CostoMana = nivel;
         }
 
         // constructor curacion
-        public Hechizo (string nombre, TipoHechizo tipo, int nivel, int curacion)
-            :this(nombre, TipoHechizo.Curacion, nivel)
+        public Hechizo(string nombre, TipoHechizo tipo, int nivel, int curacion)
+            : this(nombre, TipoHechizo.Curacion, nivel)
         {
             this.Curacion = curacion;
             this.CostoMana = nivel;
